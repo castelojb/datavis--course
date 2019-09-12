@@ -1,3 +1,5 @@
+## Aula do dia 11 de Setembro
+[scatterplot.html](d3_scale/scatterplot.html)<br>
 
 
 ## Aula do dia 3 de Setembro
