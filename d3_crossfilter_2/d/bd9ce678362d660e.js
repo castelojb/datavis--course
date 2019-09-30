@@ -1,4 +1,4 @@
-// https://observablehq.com/@castelojb/d3-com-crossfilter-e-dc-js-parte-2@213
+// https://observablehq.com/@castelojb/d3-com-crossfilter-e-dc-js-parte-2@222
 export default function define(runtime, observer) {
   const main = runtime.module();
   main.variable(observer()).define(["md"], function(md){return(
@@ -26,11 +26,11 @@ facts.dimension(d => d.dtg)
   main.variable(observer()).define(["html"], function(html){return(
 html`<code>css</code> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">`
 )});
-  main.variable(observer("buildvis")).define("buildvis", ["md","container","dc","dateDimension","d3"], function(md,container,dc,dateDimension,d3)
+  main.variable(observer("buildvis")).define("buildvis", ["md","container","dc","dateDimension","d3","magnitude","magnitudeGroup","profundidade","profundidadeGroup"], function(md,container,dc,dateDimension,d3,magnitude,magnitudeGroup,profundidade,profundidadeGroup)
 {
-  let view = md`${container("dc-table-graph", "Tabela")}`
+  //let view = md`${container("dc-table-graph", "Tabela")}`
+  let view = md`${container()}`
   let dataTable = dc.dataTable(view.querySelector("#dc-table-graph"))
-
   dataTable
   .width(960)
   .height(800)
@@ -45,6 +45,32 @@ html`<code>css</code> <link rel="stylesheet" href="https://stackpath.bootstrapcd
   .sortBy(d => d.dtg)
   .order(d3.ascending)
   dataTable.render()
+  
+  let barChart = dc.barChart(view.querySelector("#magnitude-chart"))
+  let xScale = d3.scaleLinear().domain([0, 8])
+
+  barChart
+  .width(480)
+  .height(150)
+  .x(xScale)
+  .dimension(magnitude)
+  .gap(56)
+  .elasticY(true)
+  .group(magnitudeGroup)
+  barChart.render()
+  
+  let depth = dc.barChart(view.querySelector("#depth-chart"))
+  let x_Scale = d3.scaleLinear().domain([0, 100])
+
+  depth
+  .width(480)
+  .height(150)
+  .x(x_Scale)
+  .dimension(profundidade)
+  .gap(1)
+  .elasticY(true)
+  .group(profundidadeGroup)
+  depth.render()
   
   return view
 }
