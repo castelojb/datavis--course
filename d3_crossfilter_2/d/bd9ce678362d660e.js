@@ -1,4 +1,4 @@
-// https://observablehq.com/@castelojb/d3-com-crossfilter-e-dc-js-parte-2@222
+// https://observablehq.com/@castelojb/d3-com-crossfilter-e-dc-js-parte-2@224
 export default function define(runtime, observer) {
   const main = runtime.module();
   main.variable(observer()).define(["md"], function(md){return(
@@ -26,7 +26,7 @@ facts.dimension(d => d.dtg)
   main.variable(observer()).define(["html"], function(html){return(
 html`<code>css</code> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">`
 )});
-  main.variable(observer("buildvis")).define("buildvis", ["md","container","dc","dateDimension","d3","magnitude","magnitudeGroup","profundidade","profundidadeGroup"], function(md,container,dc,dateDimension,d3,magnitude,magnitudeGroup,profundidade,profundidadeGroup)
+  main.variable(observer("buildvis")).define("buildvis", ["md","container","dc","dateDimension","d3","magnitude","magnitudeGroup","profundidade","profundidadeGroup","dataset","terremoto","terremotoGroup"], function(md,container,dc,dateDimension,d3,magnitude,magnitudeGroup,profundidade,profundidadeGroup,dataset,terremoto,terremotoGroup)
 {
   //let view = md`${container("dc-table-graph", "Tabela")}`
   let view = md`${container()}`
@@ -71,6 +71,19 @@ html`<code>css</code> <link rel="stylesheet" href="https://stackpath.bootstrapcd
   .elasticY(true)
   .group(profundidadeGroup)
   depth.render()
+  
+  let lineChart = dc.lineChart(view.querySelector("#time-chart"))
+  let xscale = d3.scaleTime().domain(d3.extent(dataset, d => d.dtg))
+
+  lineChart
+  .width(960)
+  .height(150)
+  .x(xscale)
+  .dimension(terremoto)
+  //.gap(1)
+  .elasticY(true)
+  .group(terremotoGroup)
+  lineChart.render()
   
   return view
 }
