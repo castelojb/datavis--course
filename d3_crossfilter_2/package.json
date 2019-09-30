@@ -1,0 +1,14 @@
+{
+  "name": "@castelojb/d3-com-crossfilter-e-dc-js-parte-2",
+  "main": "d/bd9ce678362d660e.js",
+  "version": "213.0.0",
+  "homepage": "https://observablehq.com/@castelojb/d3-com-crossfilter-e-dc-js-parte-2",
+  "author": {
+    "name": "castelojb",
+    "url": "https://observablehq.com/@castelojb"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
