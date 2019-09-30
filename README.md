@@ -1,3 +1,6 @@
+## Aula do dia 25 de Setembro
+[crossfilter_2.html](d3_crossfilter_2/index.html)<br>
+
 ## Aula do dia 23 de Setembro
 [crossfilter.html](d3_crossfilter/index.html)<br>
 
