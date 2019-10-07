@@ -1,4 +1,4 @@
-// https://observablehq.com/@castelojb/d3-com-crossfilter-dc-js-e-leaflet-crimes-chicago@498
+// https://observablehq.com/@castelojb/d3-com-crossfilter-dc-js-e-leaflet-crimes-chicago@501
 export default function define(runtime, observer) {
   const main = runtime.module();
   main.variable(observer()).define(["md"], function(md){return(
@@ -102,8 +102,7 @@ require('leaflet@1.5.1')
    .valueAccessor(d => d.value)
    .colors(colorScale)
     .colorAccessor(d => d.key[1])
-   .legend(dc.legend().x(240).y(100).itemHeight(13).gap(5).horizontal(1)
-                  .legendWidth(120).itemWidth(60));
+   
 chart.render();
   
   return view

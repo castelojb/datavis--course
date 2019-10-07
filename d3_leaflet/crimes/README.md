@@ -1,6 +1,6 @@
 # D3 com Crossfilter, DC.js e Leaflet: Crimes Chicago
 
-https://observablehq.com/@castelojb/d3-com-crossfilter-dc-js-e-leaflet-crimes-chicago@498
+https://observablehq.com/@castelojb/d3-com-crossfilter-dc-js-e-leaflet-crimes-chicago@501
 
 View this notebook in your browser by running a web server in this folder. For
 example:
