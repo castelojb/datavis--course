@@ -1,4 +1,4 @@
-// https://observablehq.com/@castelojb/d3-com-crossfilter-dc-js-e-leaflet@245
+// https://observablehq.com/@castelojb/d3-com-crossfilter-dc-js-e-leaflet@250
 export default function define(runtime, observer) {
   const main = runtime.module();
   main.variable(observer()).define(["md"], function(md){return(
@@ -31,11 +31,11 @@ crossorigin=""/>`
   main.variable(observer("L")).define("L", ["require"], function(require){return(
 require('leaflet@1.5.1')
 )});
-  main.variable(observer("buildvis")).define("buildvis", ["md","container","dc","dateDimension","d3"], function(md,container,dc,dateDimension,d3)
+  main.variable(observer("buildvis")).define("buildvis", ["md","container","dc","dateDimension","d3","magnitude","magnitudeGroup","profundidade","profundidadeGroup","dataset","terremoto","terremotoGroup"], function(md,container,dc,dateDimension,d3,magnitude,magnitudeGroup,profundidade,profundidadeGroup,dataset,terremoto,terremotoGroup)
 {
-  let view = md`${container("dc-table-graph", "Tabela")}`
+  //let view = md`${container("dc-table-graph", "Tabela")}`
+  let view = md`${container()}`
   let dataTable = dc.dataTable(view.querySelector("#dc-table-graph"))
-
   dataTable
   .width(960)
   .height(800)
@@ -51,18 +51,6 @@ require('leaflet@1.5.1')
   .order(d3.ascending)
   dataTable.render()
   
-  return view
-}
-);
-  main.variable(observer("magnitude")).define("magnitude", ["facts"], function(facts){return(
-facts.dimension(d => d.magnitude)
-)});
-  main.variable(observer("magnitudeGroup")).define("magnitudeGroup", ["magnitude"], function(magnitude){return(
-magnitude.group()
-)});
-  main.variable(observer("barras")).define("barras", ["md","container","dc","d3","magnitude","magnitudeGroup"], function(md,container,dc,d3,magnitude,magnitudeGroup)
-{
-  let view = md`${container("magnitude-chart")}`
   let barChart = dc.barChart(view.querySelector("#magnitude-chart"))
   let xScale = d3.scaleLinear().domain([0, 8])
 
@@ -76,53 +64,26 @@ magnitude.group()
   .group(magnitudeGroup)
   barChart.render()
   
-  return view
-}
-);
-  main.variable(observer("profundidade")).define("profundidade", ["facts"], function(facts){return(
-facts.dimension(d => d.depth)
-)});
-  main.variable(observer("profundidadeGroup")).define("profundidadeGroup", ["profundidade"], function(profundidade){return(
-profundidade.group()
-)});
-  main.variable(observer("profundidadeGrafico")).define("profundidadeGrafico", ["md","container","dc","d3","profundidade","profundidadeGroup"], function(md,container,dc,d3,profundidade,profundidadeGroup)
-{
-  let view = md`${container("depth-chart")}`
-  let barChart = dc.barChart(view.querySelector("#depth-chart"))
-  let xScale = d3.scaleLinear().domain([0, 100])
+  let depth = dc.barChart(view.querySelector("#depth-chart"))
+  let x_Scale = d3.scaleLinear().domain([0, 100])
 
-  barChart
+  depth
   .width(480)
   .height(150)
-  .x(xScale)
+  .x(x_Scale)
   .dimension(profundidade)
   .gap(1)
   .elasticY(true)
   .group(profundidadeGroup)
-  barChart.render()
+  depth.render()
   
-  return view
-}
-);
-  main.variable(observer("terremoto")).define("terremoto", ["facts","d3"], function(facts,d3){return(
-facts.dimension(d => d3.timeHour(d.dtg))
-)});
-  main.variable(observer("terremotoGroup")).define("terremotoGroup", ["terremoto"], function(terremoto){return(
-terremoto.group()
-)});
-  main.variable(observer()).define(["terremotoGroup"], function(terremotoGroup){return(
-terremotoGroup.top(1)
-)});
-  main.variable(observer("linha")).define("linha", ["md","container","dc","d3","dataset","terremoto","terremotoGroup"], function(md,container,dc,d3,dataset,terremoto,terremotoGroup)
-{
-  let view = md`${container("time-chart")}`
   let lineChart = dc.lineChart(view.querySelector("#time-chart"))
-  let xScale = d3.scaleTime().domain(d3.extent(dataset, d => d.dtg))
+  let xscale = d3.scaleTime().domain(d3.extent(dataset, d => d.dtg))
 
   lineChart
   .width(960)
   .height(150)
-  .x(xScale)
+  .x(xscale)
   .dimension(terremoto)
   //.gap(1)
   .elasticY(true)
@@ -132,6 +93,27 @@ terremotoGroup.top(1)
   return view
 }
 );
+  main.variable(observer("magnitude")).define("magnitude", ["facts"], function(facts){return(
+facts.dimension(d => d.magnitude)
+)});
+  main.variable(observer("magnitudeGroup")).define("magnitudeGroup", ["magnitude"], function(magnitude){return(
+magnitude.group()
+)});
+  main.variable(observer("profundidade")).define("profundidade", ["facts"], function(facts){return(
+facts.dimension(d => d.depth)
+)});
+  main.variable(observer("profundidadeGroup")).define("profundidadeGroup", ["profundidade"], function(profundidade){return(
+profundidade.group()
+)});
+  main.variable(observer("terremoto")).define("terremoto", ["facts","d3"], function(facts,d3){return(
+facts.dimension(d => d3.timeHour(d.dtg))
+)});
+  main.variable(observer("terremotoGroup")).define("terremotoGroup", ["terremoto"], function(terremoto){return(
+terremoto.group()
+)});
+  main.variable(observer()).define(["terremotoGroup"], function(terremotoGroup){return(
+terremotoGroup.top(1)
+)});
   main.variable(observer("container")).define("container", function(){return(
 function container() { 
   return `
