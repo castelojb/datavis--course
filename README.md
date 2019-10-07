@@ -1,5 +1,7 @@
 ## Aula do dia 30 de Setembro
-[leaflet_parte1.html](d3_leaflet/index.html)<br>
+[leaflet_parte1.html](d3_leaflet/terremoto/index.html)<br>
+[leaflet_parte2.html](d3_leaflet/crimes/index.html)<br>
+
 
 ## Aula do dia 25 de Setembro
 [crossfilter_2.html](d3_crossfilter_2/index.html)<br>
