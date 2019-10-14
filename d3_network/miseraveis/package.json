@@ -1,0 +1,14 @@
+{
+  "name": "@castelojb/os-miseraveis",
+  "main": "d/5cfaf0a0e92c1c76.js",
+  "version": "183.0.0",
+  "homepage": "https://observablehq.com/@castelojb/os-miseraveis",
+  "author": {
+    "name": "castelojb",
+    "url": "https://observablehq.com/@castelojb"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}

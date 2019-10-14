@@ -1,3 +1,8 @@
+## Aula do dia 9 de Outubro
+[similar_song.html](d3_network/conexao/index.html)
+[miseraveis.html](d3_network/miseraveis/index.html)
+
+
 ## Aula do dia 30 de Setembro
 [leaflet_parte1.html](d3_leaflet/terremoto/index.html)<br>
 [leaflet_parte2.html](d3_leaflet/crimes/index.html)<br>
