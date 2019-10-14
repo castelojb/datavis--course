@@ -1,6 +1,6 @@
 ## Aula do dia 9 de Outubro
-[similar_song.html](d3_network/conexao/index.html)
-[miseraveis.html](d3_network/miseraveis/index.html)
+[similar_song.html](d3_network/conexao/index.html)<br>
+[miseraveis.html](d3_network/miseraveis/index.html)<br>
 
 
 ## Aula do dia 30 de Setembro
