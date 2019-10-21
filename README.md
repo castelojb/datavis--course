@@ -1,3 +1,8 @@
+## Aula do dia 16 de Outubro
+[crimes.html](d3_color/crimes/index.html)<br>
+[desemprego.html](d3_color/desemprego/index.html)<br>
+
+
 ## Aula do dia 9 de Outubro
 [similar_song.html](d3_network/conexao/index.html)<br>
 [miseraveis.html](d3_network/miseraveis/index.html)<br>

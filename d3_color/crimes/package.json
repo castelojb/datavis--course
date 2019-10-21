@@ -1,0 +1,14 @@
+{
+  "name": "@castelojb/homicidios-em-fortaleza-em-2012",
+  "main": "d/9f61ee5b56138068.js",
+  "version": "108.0.0",
+  "homepage": "https://observablehq.com/@castelojb/homicidios-em-fortaleza-em-2012",
+  "author": {
+    "name": "castelojb",
+    "url": "https://observablehq.com/@castelojb"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
