@@ -1,6 +1,6 @@
 ## Aula do dia 23 de Outubro
-[desemprego.html](d3_interactive/Parte 1/index.html)<br>
-[terremotos.html](d3_interactive/Parte 2/index.html)<br>
+[desemprego.html](d3_interactive/Parte1/index.html)<br>
+[terremotos.html](d3_interactive/Parte2/index.html)<br>
 
 
 ## Aula do dia 16 de Outubro
