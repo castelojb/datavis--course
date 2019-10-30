@@ -3,7 +3,6 @@
 [terremotos.html](d3_interactive/Parte 2/index.html)<br>
 
 
-
 ## Aula do dia 16 de Outubro
 [crimes.html](d3_color/crimes/index.html)<br>
 [desemprego.html](d3_color/desemprego/index.html)<br>
